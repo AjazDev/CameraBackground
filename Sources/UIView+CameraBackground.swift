@@ -200,7 +200,7 @@ public extension UIView {
         if let numberInTitle = (viewWithTag(theTimerButtonTag) as? UIButton)?.currentTitle?.trimmingCharacters(in: CharacterSet(charactersIn: " s")) {
             return Int(numberInTitle) ?? 0
         }
-        return 0
+        return 5
     }
 
     private func performWithTimer(_ interval: Int, block: @escaping () -> Void) {
