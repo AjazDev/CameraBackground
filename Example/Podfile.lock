@@ -1,30 +1,29 @@
 PODS:
-  - CameraBackground (1.6.5):
-    - CameraBackground/Resources (= 1.6.5)
+  - CameraBackground (1.6.6):
+    - CameraBackground/Resources (= 1.6.6)
     - MultiToggleButton
     - SweeterSwift
-  - CameraBackground/Resources (1.6.5):
+  - CameraBackground/Resources (1.6.6):
     - MultiToggleButton
     - SweeterSwift
-  - MultiToggleButton (1.8.1)
-  - SweeterSwift (1.0.5)
-  - SwiftFormat/CLI (0.40.9)
-  - SwiftLint (0.33.0)
-  - SwiftQuality (1.0.2):
-    - SwiftFormat/CLI (= 0.40.9)
-    - SwiftLint (= 0.33.0)
+  - MultiToggleButton (1.8.3)
+  - SweeterSwift (1.2.2)
+  - SwiftFormat/CLI (0.50.7)
+  - SwiftLint (0.50.3)
+  - SwiftQuality (2.0.1):
+    - SwiftFormat/CLI (= 0.50.7)
+    - SwiftLint (= 0.50.3)
 
 DEPENDENCIES:
   - CameraBackground (from `..`)
   - SwiftQuality (from `https://github.com/yonat/SwiftQuality`)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - MultiToggleButton
+    - SweeterSwift
     - SwiftFormat
     - SwiftLint
-  trunk:
-    - SweeterSwift
 
 EXTERNAL SOURCES:
   CameraBackground:
@@ -34,17 +33,17 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   SwiftQuality:
-    :commit: d56816af9d75882d222965c0bee01f5ca410f3e0
+    :commit: f192ce833f082501a51269c1cb08cf6cf01fa3a3
     :git: https://github.com/yonat/SwiftQuality
 
 SPEC CHECKSUMS:
-  CameraBackground: 99ae3be267e5fd348e86281ba800fb6ee9862c80
-  MultiToggleButton: 05601cbfe9ce0987e56713f8d5e7dff90619c4ea
-  SweeterSwift: 2708d1eea926546f8f6e8fea38ac8f5598ff00c7
-  SwiftFormat: 6b67b6e7fe73d664f0cbb4f13721f130462c86a5
-  SwiftLint: fed9c66336e41fc74dc48a73678380718f0c8b0e
-  SwiftQuality: 9dddd6752df12ae7ed3b1eed24b6fc42d75724cf
+  CameraBackground: c49757cfdda55a2d37d187fe92a59a24451196f1
+  MultiToggleButton: 9d22a914979dbe3227a816638f65e347fee322ef
+  SweeterSwift: a875c6c0242ed0fb5f7859bf9832fd3648c3822f
+  SwiftFormat: 4fcf72ee44c7198255108c22ed7135c38a36ba6b
+  SwiftLint: 77f7cb2b9bb81ab4a12fcc86448ba3f11afa50c6
+  SwiftQuality: 8d69820e0f82a25563c3cb33d31b0a11f124ea0c
 
-PODFILE CHECKSUM: 3a5e97b09492887e31c4dd3e8ca14727790f27ec
+PODFILE CHECKSUM: 140f8fb8b9aa204f27962a9a0ceff5d514795413
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.12.1

@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.6.8] - 2023-08-19
+
+### Added
+- add privacy manifest PrivacyInfo.xcprivacy.
+
+## [1.6.7] - 2022-11-15
+
+- fix Package.swift manifest.
+
+## [1.6.6] - 2022-10-26
+
+### Fixed
+- move AVCaptureSession.startRunning() off main thread, to pacify Xcode 14.
+
 ## [1.6.5] - 2019-08-22
 
 ### Added

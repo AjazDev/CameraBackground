@@ -7,6 +7,7 @@
 //
 
 import AVFoundation
+import UIKit
 
 extension AVCaptureSession {
     class func stillCameraCaptureSession(_ position: AVCaptureDevice.Position) -> AVCaptureSession? {
@@ -17,7 +18,7 @@ extension AVCaptureSession {
         session.sessionPreset = AVCaptureSession.Preset.photo
         session.addCameraInput(position)
         session.addOutput(AVCaptureStillImageOutput())
-        session.startRunning()
+        session.startRunningInBackground()
         return session
     }
 
@@ -36,6 +37,12 @@ extension AVCaptureSession {
             }
         } catch {
             NSLog("Can't access camera")
+        }
+    }
+
+    func startRunningInBackground() {
+        DispatchQueue.global().async { [weak self] in
+            self?.startRunning()
         }
     }
 }
@@ -103,7 +110,7 @@ extension AVCaptureDevice {
 
 extension AVCaptureVideoPreviewLayer {
     func captureStillImage(_ completion: ((_ capturedImage: UIImage?, _ error: NSError?) -> Void)?) {
-        let errorCompletion = { (code: Int, description: String) -> Void in
+        let errorCompletion = { (code: Int, description: String) in
             completion?(nil, NSError(domain: "AVCaptureError", code: code, userInfo: [NSLocalizedDescriptionKey: description]))
             return
         }
@@ -115,7 +122,7 @@ extension AVCaptureVideoPreviewLayer {
                         completion?(nil, error as NSError?)
                     } else if let imageBuffer = imageBuffer {
                         if let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageBuffer),
-                            var image = UIImage(data: imageData) {
+                           var image = UIImage(data: imageData) {
                             if (self.session?.inputs.first as? AVCaptureDeviceInput)?.device.position == .front { // flip front camera
                                 // swiftlint:disable force_unwrapping
                                 image = UIImage(cgImage: image.cgImage!, scale: image.scale, orientation: .rightMirrored)

@@ -76,7 +76,7 @@ public extension UIView {
     /// Re-start streaming input from camera into background layer.
     @objc func freeCameraSnapshot() {
         cameraLayer?.connection?.isEnabled = true // to unfreeze image
-        cameraLayer?.session?.startRunning()
+        cameraLayer?.session?.startRunningInBackground()
         removeFocusBox()
     }
 
@@ -288,7 +288,7 @@ class CameraLayer: AVCaptureVideoPreviewLayer {
         guard let superlayer = superlayer else { return }
         frame = superlayer.bounds
         guard let connection = connection, connection.isVideoOrientationSupported,
-            let appOrientation = AVCaptureVideoOrientation(rawValue: UIApplication.shared.statusBarOrientation.rawValue)
+              let appOrientation = AVCaptureVideoOrientation(rawValue: UIApplication.shared.statusBarOrientation.rawValue)
         else { return }
         connection.videoOrientation = appOrientation
     }
